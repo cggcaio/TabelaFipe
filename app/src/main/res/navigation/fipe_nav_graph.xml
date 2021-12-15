@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fipe_nav_graph"
+    app:startDestination="@id/start_fragment"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <fragment
+        android:id="@+id/start_fragment"
+        android:name="br.com.gerencianet.tabelafipe.StartFragment"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_start_fragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="br.com.gerencianet.tabelafipe.SecondFragment"
+        android:label="SecondFragment"
+        tools:layout="@layout/fragment_second"/>
+
+</navigation>
