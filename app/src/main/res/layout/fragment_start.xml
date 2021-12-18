@@ -22,7 +22,7 @@
             android:text="Primeira Tela" />
 
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/b_next"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
