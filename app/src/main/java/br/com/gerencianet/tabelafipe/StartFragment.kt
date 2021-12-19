@@ -6,21 +6,36 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import br.com.gerencianet.tabelafipe.adapter.ManufacturerListAdapter
 import br.com.gerencianet.tabelafipe.databinding.FragmentStartBinding
+import br.com.gerencianet.tabelafipe.domain.model.ManufacturerModel
 
 class StartFragment : Fragment() {
 
     private lateinit var mBinding: FragmentStartBinding
     private val mController by lazy { findNavController() }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        mBinding.bNext.setOnClickListener {
-            StartFragmentDirections.actionStartFragmentToSecondFragment().run {
-                mController.navigate(this)
-            }
-        }
-    }
+    private val mAdapter: ManufacturerListAdapter = ManufacturerListAdapter()
+
+    private var mList: List<ManufacturerModel> = listOf(
+        ManufacturerModel(id = 0L, name = "Acura"),
+        ManufacturerModel(id = 5L, name = "Citroen"),
+        ManufacturerModel(id = 1L, name = "Fiat"),
+        ManufacturerModel(id = 2L, name = "Mercedes"),
+        ManufacturerModel(id = 3L, name = "Toyota"),
+        ManufacturerModel(id = 4L, name = "Volks"),
+        ManufacturerModel(id = 4L, name = "Volks"),
+        ManufacturerModel(id = 4L, name = "Volks"),
+        ManufacturerModel(id = 4L, name = "Volks"),
+        ManufacturerModel(id = 4L, name = "Volks"),
+        ManufacturerModel(id = 4L, name = "Volks"),
+        ManufacturerModel(id = 4L, name = "Volks"),
+        ManufacturerModel(id = 4L, name = "Volks"),
+        ManufacturerModel(id = 4L, name = "Volks"),
+        ManufacturerModel(id = 4L, name = "Volks"),
+        ManufacturerModel(id = 4L, name = "Volks"),
+        ManufacturerModel(id = 4L, name = "Volks")
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,5 +45,16 @@ class StartFragment : Fragment() {
         // Inflate the layout for this fragment
         mBinding = FragmentStartBinding.inflate(inflater, container, false)
         return mBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mBinding.rvManufacturer.adapter = mAdapter
+        mAdapter.submitList(mList)
+        mBinding.bNext.setOnClickListener {
+            StartFragmentDirections.actionStartFragmentToSecondFragment().run {
+                mController.navigate(this)
+            }
+        }
     }
 }
