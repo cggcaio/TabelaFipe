@@ -10,30 +10,25 @@ import br.com.gerencianet.tabelafipe.databinding.FragmentStartBinding
 
 class StartFragment : Fragment() {
 
- lateinit var binding : FragmentStartBinding
- private val controller by lazy { findNavController() }
+    private lateinit var mBinding: FragmentStartBinding
+    private val mController by lazy { findNavController() }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onViewCreated(view : View, savedInstanceState : Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.bNext.setOnClickListener{
+        mBinding.bNext.setOnClickListener {
             StartFragmentDirections.actionStartFragmentToSecondFragment().run {
-                findNavController().navigate(this)
+                mController.navigate(this)
             }
         }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentStartBinding.inflate(inflater,container,false)
-        return binding.root
-
+        mBinding = FragmentStartBinding.inflate(inflater, container, false)
+        return mBinding.root
     }
-
 }
