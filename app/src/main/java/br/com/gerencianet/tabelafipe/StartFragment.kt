@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.gerencianet.tabelafipe.adapter.ManufacturerListAdapter
@@ -15,7 +16,9 @@ class StartFragment : Fragment() {
     private lateinit var mBinding: FragmentStartBinding
     private val mController by lazy { findNavController() }
 
-    private val mAdapter: ManufacturerListAdapter = ManufacturerListAdapter()
+    private val mAdapter: ManufacturerListAdapter = ManufacturerListAdapter() { manufacturer ->
+        Toast.makeText(requireContext(), manufacturer.name, Toast.LENGTH_LONG).show()
+    }
 
     private var mList: List<ManufacturerModel> = listOf(
         ManufacturerModel(id = 0L, name = "Acura"),
