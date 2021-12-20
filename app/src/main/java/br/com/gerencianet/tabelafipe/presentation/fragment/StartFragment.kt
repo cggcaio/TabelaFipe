@@ -1,4 +1,4 @@
-package br.com.gerencianet.tabelafipe
+package br.com.gerencianet.tabelafipe.presentation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import br.com.gerencianet.tabelafipe.adapter.ManufacturerListAdapter
 import br.com.gerencianet.tabelafipe.databinding.FragmentStartBinding
 import br.com.gerencianet.tabelafipe.domain.model.ManufacturerModel
+import br.com.gerencianet.tabelafipe.presentation.StartFragmentDirections
 
 class StartFragment : Fragment() {
 
@@ -55,9 +56,10 @@ class StartFragment : Fragment() {
         mBinding.rvManufacturer.adapter = mAdapter
         mAdapter.submitList(mList)
         mBinding.bNext.setOnClickListener {
-            StartFragmentDirections.actionStartFragmentToSecondFragment().run {
-                mController.navigate(this)
-            }
+            StartFragmentDirections.actionStartFragmentToSecondFragment()
+                .run {
+                    mController.navigate(this)
+                }
         }
     }
 }

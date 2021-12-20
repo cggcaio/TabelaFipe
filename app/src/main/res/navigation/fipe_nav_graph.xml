@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/start_fragment"
-        android:name="br.com.gerencianet.tabelafipe.StartFragment"
+        android:name="br.com.gerencianet.tabelafipe.presentation.StartFragment"
         tools:layout="@layout/fragment_start" >
         <action
             android:id="@+id/action_start_fragment_to_secondFragment"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="br.com.gerencianet.tabelafipe.SecondFragment"
+        android:name="br.com.gerencianet.tabelafipe.presentation.fragment.SecondFragment"
         android:label="SecondFragment"
         tools:layout="@layout/fragment_second">
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
-        android:name="br.com.gerencianet.tabelafipe.ThirdFragment"
+        android:name="br.com.gerencianet.tabelafipe.presentation.fragment.ThirdFragment"
         android:label="fragment_third"
         tools:layout="@layout/fragment_third" />
 

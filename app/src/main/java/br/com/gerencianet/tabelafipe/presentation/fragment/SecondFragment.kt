@@ -1,4 +1,4 @@
-package br.com.gerencianet.tabelafipe
+package br.com.gerencianet.tabelafipe.presentation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -49,7 +49,8 @@ class SecondFragment : Fragment() {
         mBinding.rvModel.adapter = mAdapter
         mAdapter.submitList(mList)
         mBinding.bNext.setOnClickListener {
-            SecondFragmentDirections.actionSecondFragmentToThirdFragment().run {
+            SecondFragmentDirections.actionSecondFragmentToThirdFragment()
+                .run {
                 mController.navigate(this)
             }
         }

@@ -1,4 +1,4 @@
-package br.com.gerencianet.tabelafipe
+package br.com.gerencianet.tabelafipe.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package br.com.gerencianet.tabelafipe
+package br.com.gerencianet.tabelafipe.presentation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.gerencianet.tabelafipe.adapter.ModelListAdapter
-import br.com.gerencianet.tabelafipe.databinding.FragmentSecondBinding
 import br.com.gerencianet.tabelafipe.databinding.FragmentThirdBinding
 
 class ThirdFragment : Fragment() {
@@ -26,5 +25,3 @@ class ThirdFragment : Fragment() {
         return mBinding.root
     }
 }
-
-
