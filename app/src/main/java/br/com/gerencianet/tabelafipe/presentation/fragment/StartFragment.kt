@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import br.com.gerencianet.tabelafipe.adapter.ManufacturerListAdapter
 import br.com.gerencianet.tabelafipe.databinding.FragmentStartBinding
 import br.com.gerencianet.tabelafipe.domain.model.ManufacturerModel
-import br.com.gerencianet.tabelafipe.presentation.StartFragmentDirections
 
 class StartFragment : Fragment() {
 

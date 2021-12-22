@@ -1,7 +1,7 @@
 package br.com.gerencianet.tabelafipe.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import br.com.gerencianet.tabelafipe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

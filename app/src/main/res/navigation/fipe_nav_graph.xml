@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/start_fragment"
-        android:name="br.com.gerencianet.tabelafipe.presentation.StartFragment"
+        android:name="br.com.gerencianet.tabelafipe.presentation.fragment.StartFragment"
         tools:layout="@layout/fragment_start" >
         <action
             android:id="@+id/action_start_fragment_to_secondFragment"
