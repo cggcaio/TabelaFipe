@@ -10,51 +10,32 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.ThirdFragment">
+        tools:context=".presentation.FourthFragment">
 
         <TextView
-            android:id="@+id/tv_title_year"
+            android:id="@+id/tv_title_price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="44dp"
-            android:text="Escolha o ano do veículo"
+            android:text="Preço do veículo"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiet_year"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            android:hint="Ano"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_title_year" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_year"
+            android:id="@+id/rv_price"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@id/b_next"
+            app:layout_constraintBottom_toTopOf="@id/b_back"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tiet_year"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_price"
             tools:listitem="@layout/item_year" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/b_next"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Próxima"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/b_back" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/b_back"
@@ -62,8 +43,7 @@
             android:layout_height="wrap_content"
             android:text="Voltar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/b_next"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

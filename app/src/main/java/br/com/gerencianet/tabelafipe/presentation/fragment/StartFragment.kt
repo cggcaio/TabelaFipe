@@ -6,15 +6,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import br.com.gerencianet.tabelafipe.adapter.ManufacturerListAdapter
 import br.com.gerencianet.tabelafipe.databinding.FragmentStartBinding
 import br.com.gerencianet.tabelafipe.domain.model.ManufacturerModel
+import br.com.gerencianet.tabelafipe.presentation.TabelaFipeApp
+import br.com.gerencianet.tabelafipe.presentation.viewmodel.FipeViewModel
+import javax.inject.Inject
 
 class StartFragment : Fragment() {
 
     private lateinit var mBinding: FragmentStartBinding
     private val mController by lazy { findNavController() }
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    private val mViewModel: FipeViewModel by viewModels<FipeViewModel> { viewModelFactory }
 
     private val mAdapter: ManufacturerListAdapter = ManufacturerListAdapter() { manufacturer ->
         Toast.makeText(requireContext(), manufacturer.name, Toast.LENGTH_LONG).show()
@@ -51,7 +60,9 @@ class StartFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        TabelaFipeApp.appComponent.inject(this)
         super.onViewCreated(view, savedInstanceState)
+        mViewModel.getManufacturerList()
         mBinding.rvManufacturer.adapter = mAdapter
         mAdapter.submitList(mList)
         mBinding.bNext.setOnClickListener {
