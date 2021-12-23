@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.gerencianet.tabelafipe.databinding.ItemModelBinding
 import br.com.gerencianet.tabelafipe.domain.model.ModelModel
 
-class ModelListAdapter() :
+class ModelListAdapter(private val mClick: (model: ModelModel) -> Unit) :
     ListAdapter<ModelModel, ModelListAdapter.ModelListViewHolder>(DiffCallback) {
 
     companion object DiffCallback : DiffUtil.ItemCallback<ModelModel>() {
@@ -38,8 +38,11 @@ class ModelListAdapter() :
         }
 
         // Essa função tem a finalidade de setar nome, cor de cada item da recycler, tudo dentro dessa função
-        fun bind(model: ModelModel) {
+        fun bind(model: ModelModel, mClick: (model: ModelModel) -> Unit) {
             mBinding.tvModel.text = model.name
+            mBinding.clModelItem.setOnClickListener {
+                mClick(model)
+            }
             mBinding.executePendingBindings() // Na última linha do binding sempre essar esse código, se tiver algum binding pendente ele executa
         }
     }
@@ -51,7 +54,7 @@ class ModelListAdapter() :
 
     override fun onBindViewHolder(holder: ModelListAdapter.ModelListViewHolder, position: Int) {
         getItem(position)?.let { safeModel ->
-            holder.bind(safeModel)
+            holder.bind(safeModel, mClick)
         }
     }
 }

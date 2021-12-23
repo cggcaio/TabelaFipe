@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.gerencianet.tabelafipe.adapter.ModelListAdapter
@@ -15,7 +16,9 @@ class SecondFragment : Fragment() {
     private lateinit var mBinding: FragmentSecondBinding
     private val mController by lazy { findNavController() }
 
-    private val mAdapter: ModelListAdapter = ModelListAdapter()
+    private val mAdapter: ModelListAdapter = ModelListAdapter() { model ->
+        Toast.makeText(requireContext(), model.name, Toast.LENGTH_LONG).show()
+    }
 
     private var mList: List<ModelModel> = listOf(
         ModelModel(id = 0L, name = "147 Furgão"),
@@ -38,7 +41,7 @@ class SecondFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         mBinding = FragmentSecondBinding.inflate(inflater, container, false)
         return mBinding.root
@@ -51,8 +54,14 @@ class SecondFragment : Fragment() {
         mBinding.bNext.setOnClickListener {
             SecondFragmentDirections.actionSecondFragmentToThirdFragment()
                 .run {
-                mController.navigate(this)
-            }
+                    mController.navigate(this)
+                }
+        }
+        mBinding.bBack.setOnClickListener {
+            SecondFragmentDirections.actionSecondFragmentToStartFragment()
+                .run {
+                    mController.navigate(this)
+                }
         }
     }
 }
