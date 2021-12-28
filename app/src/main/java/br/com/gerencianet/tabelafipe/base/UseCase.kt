@@ -2,7 +2,7 @@ package br.com.gerencianet.tabelafipe.base
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import java.util.concurrent.Flow
+import kotlinx.coroutines.flow.Flow
 
 interface UseCase<Type> {
     val dispatcher: CoroutineDispatcher

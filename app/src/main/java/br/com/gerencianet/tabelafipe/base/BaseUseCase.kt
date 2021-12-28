@@ -1,10 +1,12 @@
 package br.com.gerencianet.tabelafipe.base
 
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
 import kotlinx.coroutines.channels.sendBlocking
 import kotlinx.coroutines.flow.*
 
-
+@OptIn(FlowPreview::class, ExperimentalCoroutinesApi::class)
 abstract class BaseUseCase<Type : Any, Params : Any?> : UseCase<Type> {
     private val channel = ConflatedBroadcastChannel<Params>()
 

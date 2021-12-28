@@ -23,7 +23,8 @@ class StartFragment : Fragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    private val mViewModel: FipeViewModel by viewModels<FipeViewModel> { viewModelFactory }
+
+    private val mViewModel by viewModels<FipeViewModel> { viewModelFactory }
 
     private val mAdapter: ManufacturerListAdapter = ManufacturerListAdapter() { manufacturer ->
         Toast.makeText(requireContext(), manufacturer.name, Toast.LENGTH_LONG).show()

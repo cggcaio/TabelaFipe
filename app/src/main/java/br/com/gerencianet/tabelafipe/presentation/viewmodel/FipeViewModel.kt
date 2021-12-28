@@ -13,13 +13,13 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class FipeViewModel @Inject constructor(
-    val getManufacturersListUseCase: GetManufacturersListUseCase
+    private val mGetManufacturersListUseCase: GetManufacturersListUseCase
 ) : ViewModel() {
 
     private val mManufacturerList = MutableLiveData<List<ManufacturerModel>>()
 
     fun getManufacturerList() {
-        getManufacturersListUseCase.produce(BaseUseCase.None).map {
+        mGetManufacturersListUseCase.produce(BaseUseCase.None).map {
             mManufacturerList.value = it
         }.catch { error ->
             Log.d("Error", error.message ?: "")

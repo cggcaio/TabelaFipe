@@ -7,11 +7,19 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [ViewModelBuilderModule::class, ViewModelModule::class, RepositoryModule::class, RetrofitModule::class])
+@Component(
+    modules = [
+        ViewModelBuilderModule::class,
+        ViewModelModule::class,
+        RepositoryModule::class,
+        RetrofitModule::class
+    ]
+)
 interface AppComponent {
     @Component.Factory
     interface Factory {
         fun create(@BindsInstance applicationContext: Context): AppComponent
     }
+
     fun inject(fragment: StartFragment)
 }

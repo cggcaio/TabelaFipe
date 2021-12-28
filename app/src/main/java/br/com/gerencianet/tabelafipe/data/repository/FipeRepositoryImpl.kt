@@ -9,6 +9,6 @@ import javax.inject.Inject
 class FipeRepositoryImpl @Inject constructor(private val mTabelaFipeService: TabelaFipeService) :
     FipeRepository {
     override suspend fun getManufacturerList(): List<ManufacturerModel> {
-       return ManufacturerResponseToManufacturerModel.transformToList(mTabelaFipeService.getManufacturers())
+        return ManufacturerResponseToManufacturerModel.transformToList(mTabelaFipeService.getManufacturers())
     }
 }

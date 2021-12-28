@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import br.com.gerencianet.tabelafipe.databinding.ItemPriceBinding
 import br.com.gerencianet.tabelafipe.domain.model.PriceModel
-import br.com.gerencianet.tabelafipe.domain.model.YearModel
 
 class PriceListAdapter(private val mClick: (price: PriceModel) -> Unit) : // Dentro dos parenteses está o callback
     ListAdapter<PriceModel, PriceListAdapter.PriceListViewHolder>(DiffCallback) {
